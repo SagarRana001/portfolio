@@ -32,6 +32,7 @@ export default function setSplitText() {
     });
 
     para.anim = gsap.fromTo(
+      // @ts-ignore
       para.split.words,
       { autoAlpha: 0, y: 80 },
       {
@@ -58,6 +59,7 @@ export default function setSplitText() {
       linesClass: "split-line",
     });
     title.anim = gsap.fromTo(
+      // @ts-ignore
       title.split.chars,
       { autoAlpha: 0, y: 80, rotate: 10 },
       {
