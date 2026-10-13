@@ -153,12 +153,13 @@ h1, h2, h3, h4, h5, h6 {
 .section-container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 clamp(1.5rem, 5vw, 5rem);
+  padding: 0 clamp(1.25rem, 5vw, 5rem);
 }
 
 .section-wrapper {
-  padding: clamp(5rem, 12vw, 10rem) 0;
+  padding: clamp(3.5rem, 10vw, 9rem) 0;
 }
+
 
 /* --- Buttons --- */
 .btn {

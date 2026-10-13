@@ -283,9 +283,18 @@
 }
 
 @media (max-width: 900px) {
+  .projects-header {
+    margin-bottom: 3.5rem;
+  }
+
   .project-card {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     min-height: auto;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(212, 175, 55, 0.28);
+    border-radius: 4px;
+    background: #0d0d0d;
   }
 
   .project-card.reverse .project-info,
@@ -293,7 +302,158 @@
     order: unset;
   }
 
+  .project-info {
+    order: 1;
+    padding: 2.25rem 1.75rem 2rem;
+    background: #0d0d0d;
+  }
+
   .project-visual {
-    min-height: 220px;
+    order: 2;
+    min-height: 200px;
+    height: 200px;
+    border-top: 1px solid rgba(212, 175, 55, 0.12);
   }
 }
+
+@media (max-width: 640px) {
+  .projects-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .project-card {
+    margin-bottom: 2rem;
+    border: 1px solid rgba(212, 175, 55, 0.22);
+  }
+
+  .project-info {
+    padding: 2.25rem 1.5rem 1.75rem;
+    background: #0d0d0d;
+  }
+
+  .project-number {
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    color: var(--color-gold-muted);
+    opacity: 0.85;
+    margin-bottom: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .project-number::after {
+    max-width: 48px;
+    background: rgba(212, 175, 55, 0.25);
+  }
+
+  .project-name {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 7.5vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #f7f3ea;
+    margin: 0 0 0.85rem;
+  }
+
+  .project-role {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-gold-muted);
+    margin-bottom: 1.75rem;
+    opacity: 0.9;
+  }
+
+  .project-description {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: #a8a29e;
+    font-weight: 300;
+    margin-bottom: 1.75rem;
+  }
+
+  .project-features {
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-features li {
+    font-size: 0.88rem;
+    color: #b5afa7;
+    font-weight: 300;
+    gap: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .project-features li::before {
+    width: 4px;
+    height: 4px;
+    background: var(--color-gold);
+    border-radius: 50%;
+    opacity: 0.9;
+  }
+
+  .project-tags {
+    gap: 0.55rem;
+  }
+
+  .project-tags .tech-tag {
+    padding: 0.45rem 0.9rem;
+    background: rgba(212, 175, 55, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--color-gold-muted);
+  }
+
+  .project-visual {
+    min-height: 190px;
+    height: 190px;
+  }
+
+  .project-visual-pattern {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+
+  .project-visual-name {
+    font-size: clamp(2rem, 8vw, 3rem);
+    letter-spacing: 0.04em;
+    opacity: 0.85;
+  }
+
+  .project-visual-accent {
+    width: 60px;
+    height: 1px;
+    background: var(--color-gold-muted);
+    opacity: 0.5;
+  }
+
+  .project-visual-pattern .tech-tag {
+    padding: 0.4rem 1.1rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+  }
+
+  .project-visual-grid {
+    background-size: 32px 32px;
+  }
+
+  .additional-projects-grid {
+    grid-template-columns: 1fr;
+    margin-top: 2.5rem;
+  }
+
+  .additional-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .additional-card-name {
+    font-size: 1.3rem;
+  }
+}
+
+

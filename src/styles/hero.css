@@ -218,47 +218,111 @@
 
 /* Responsive */
 @media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
+  .hero {
+    min-height: auto;
+    padding-bottom: 4rem;
     align-items: flex-start;
   }
 
-  .hero-avatar-col {
-    position: absolute;
-    right: -10%;
-    bottom: 0;
-    width: 65%;
+  .hero-inner {
+    grid-template-columns: 1fr;
+    align-items: flex-start;
     min-height: auto;
-    pointer-events: none;
-    opacity: 0.5;
-    z-index: 0;
-  }
-
-  .hero-avatar-wrapper {
-    width: 100%;
-    transform: none;
+    gap: 3rem;
+    padding-top: calc(var(--nav-height) + 1.5rem);
   }
 
   .hero-content {
     position: relative;
     z-index: 2;
-    padding-bottom: 6rem;
-    min-height: 100svh;
-    justify-content: flex-end;
+    padding-bottom: 0;
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .hero-avatar-col {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: auto;
+    pointer-events: auto;
+    opacity: 1;
+    z-index: 1;
+    padding-bottom: 0;
+  }
+
+  .hero-visual-wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
   }
 }
 
 @media (max-width: 640px) {
+  .hero {
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-inner {
+    gap: 2.5rem;
+    padding-top: calc(var(--nav-height) + 1rem);
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 1.25rem;
+    font-size: 0.58rem;
+  }
+
   .hero-name {
-    font-size: clamp(3rem, 12vw, 4.5rem);
+    font-size: clamp(2.75rem, 11vw, 3.8rem);
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .hero-title {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
   }
 
   .hero-headline {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+  }
+
+  .hero-summary {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-bottom: 1.75rem;
   }
 
   .hero-buttons {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    width: 100%;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .hero-stat {
+    gap: 0.75rem;
+  }
+
+  .hero-stat-text {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
   }
 }
+
