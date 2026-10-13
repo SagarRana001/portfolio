@@ -1,0 +1,299 @@
+/* ============================================
+   PROJECTS SECTION
+   ============================================ */
+.projects-section {
+  position: relative;
+  background: var(--color-bg);
+}
+
+.projects-header {
+  margin-bottom: 5rem;
+}
+
+/* Featured project card */
+.project-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 420px;
+  border: 1px solid var(--color-gold-border);
+  margin-bottom: 3px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: border-color 0.4s var(--ease-royal);
+  cursor: default;
+}
+
+.project-card:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.project-card.reverse {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Top gold border reveal on hover */
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+  transition: width 0.6s var(--ease-royal);
+  z-index: 5;
+}
+
+.project-card:hover::before {
+  width: 100%;
+}
+
+/* Info side */
+.project-info {
+  padding: clamp(2.5rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--color-surface);
+  position: relative;
+}
+
+.project-card.reverse .project-info {
+  order: 2;
+}
+
+.project-card.reverse .project-visual {
+  order: 1;
+}
+
+.project-number {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold-muted);
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-number::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(212, 175, 55, 0.15);
+  max-width: 40px;
+}
+
+.project-name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.75rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 1.25rem 0 0.75rem;
+}
+
+.project-role {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-muted);
+  margin-bottom: 1.25rem;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.project-features {
+  list-style: none;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-features li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 300;
+}
+
+.project-features li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Visual side */
+.project-visual {
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+}
+
+.project-visual-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient, linear-gradient(135deg, #111 0%, #1a1a1a 100%));
+  transition: transform 0.6s var(--ease-royal);
+}
+
+.project-card:hover .project-visual-bg {
+  transform: scale(1.03);
+}
+
+.project-visual-pattern {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 2;
+  padding: 3rem;
+}
+
+.project-visual-name {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 300;
+  color: rgba(245, 241, 232, 0.08);
+  letter-spacing: 0.05em;
+  text-align: center;
+  line-height: 1;
+}
+
+.project-visual-accent {
+  width: 60px;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.4;
+}
+
+.project-visual-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 1;
+}
+
+/* — Additional Projects Grid — */
+.additional-projects-section {
+  padding-top: 2rem;
+}
+
+.additional-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1px;
+  margin-top: 4rem;
+  border: 1px solid var(--color-gold-border);
+}
+
+.additional-card {
+  background: var(--color-surface);
+  padding: 2.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: background 0.35s, transform 0.35s var(--ease-royal);
+}
+
+.additional-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.additional-card:hover {
+  background: var(--color-surface-2);
+  transform: translateY(-2px);
+}
+
+.additional-card:hover::before {
+  opacity: 1;
+}
+
+.additional-card-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.additional-card-role {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-muted);
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.additional-card-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+.additional-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .project-card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .project-card.reverse .project-info,
+  .project-card.reverse .project-visual {
+    order: unset;
+  }
+
+  .project-visual {
+    min-height: 220px;
+  }
+}

@@ -1,0 +1,362 @@
+/* ============================================
+   TECH VISUAL / CODE COMPONENT (Hero Replacement)
+   ============================================ */
+
+.tech-visual-container {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  margin-left: auto;
+}
+
+/* Ambient glow & cosmic energy */
+.tech-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tech-glow-primary {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, transparent 70%);
+  top: 15%;
+  left: 20%;
+  animation: pulseGlow 6s ease-in-out infinite alternate;
+}
+
+.tech-glow-secondary {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(168, 139, 67, 0.12) 0%, transparent 70%);
+  bottom: 10%;
+  right: 10%;
+  animation: pulseGlow 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(0.9) translate(-5px, -5px); opacity: 0.6; }
+  100% { transform: scale(1.1) translate(5px, 5px); opacity: 1; }
+}
+
+/* Concentric Orbit ring */
+.tech-orbit-ring {
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  border: 1px dashed rgba(212, 175, 55, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.4s ease-out;
+}
+
+.orbit-grid-circle {
+  position: absolute;
+  inset: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+}
+
+.orbit-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--color-gold);
+}
+
+.orbit-dot-1 {
+  top: -3px;
+  left: 50%;
+}
+
+.orbit-dot-2 {
+  bottom: 25%;
+  right: 2%;
+}
+
+/* Main Terminal Code Window */
+.tech-terminal-window {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 460px;
+  background: rgba(14, 14, 15, 0.88);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 14px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 24px 60px -15px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(212, 175, 55, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform-style: preserve-3d;
+  will-change: transform;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.tech-terminal-window:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.1rem;
+  background: rgba(20, 20, 22, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.terminal-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.terminal-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.85;
+}
+
+.dot-close { background: #ff5f56; }
+.dot-minimize { background: #ffbd2e; }
+.dot-expand { background: #27c93f; }
+
+.terminal-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.terminal-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+  padding: 3px 7px;
+  border-radius: 12px;
+  border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+.live-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: liveBlink 1.8s infinite;
+}
+
+@keyframes liveBlink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Terminal Body Code */
+.terminal-body {
+  padding: 1.2rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  line-height: 1.7;
+}
+
+.code-line {
+  display: flex;
+  align-items: baseline;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.code-highlight {
+  background: rgba(212, 175, 55, 0.08);
+  margin: 0 -1.25rem;
+  padding: 0 1.25rem;
+  border-left: 2px solid var(--color-gold);
+}
+
+.code-ln {
+  user-select: none;
+  color: var(--color-text-muted);
+  font-size: 0.7rem;
+  min-width: 26px;
+  opacity: 0.6;
+}
+
+.kw { color: #f43f5e; font-weight: 500; }
+.type { color: #38bdf8; }
+.prop { color: #cbd5e1; }
+.str { color: #fde047; }
+.fn { color: #a78bfa; }
+.num { color: #fb923c; }
+
+/* Terminal Footer */
+.terminal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55rem 1rem;
+  background: rgba(10, 10, 12, 0.95);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  color: var(--color-text-muted);
+}
+
+.footer-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.branch-icon {
+  color: var(--color-gold);
+}
+
+.highlight-text {
+  color: var(--color-gold-muted);
+}
+
+/* Floating Satellite Cards */
+.tech-badge {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.75rem 1rem;
+  background: rgba(18, 18, 20, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 12px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:
+    0 16px 36px -10px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(212, 175, 55, 0.08);
+  pointer-events: auto;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.tech-badge:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 16px 40px -8px rgba(212, 175, 55, 0.2);
+}
+
+.badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--color-gold);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  flex-shrink: 0;
+}
+
+.badge-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+.badge-val {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  letter-spacing: 0.01em;
+}
+
+/* Satellite Positions */
+.tech-badge-mobile {
+  top: 8%;
+  left: -8%;
+  animation: floatMobile 5s ease-in-out infinite alternate;
+}
+
+.tech-badge-cloud {
+  bottom: 12%;
+  left: -5%;
+  animation: floatCloud 6s ease-in-out infinite alternate 1s;
+}
+
+.tech-badge-perf {
+  top: 65%;
+  right: -6%;
+  animation: floatPerf 5.5s ease-in-out infinite alternate 0.5s;
+}
+
+@keyframes floatMobile {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
+
+@keyframes floatCloud {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(12px); }
+}
+
+@keyframes floatPerf {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-12px); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tech-visual-container {
+    max-width: 480px;
+    height: 480px;
+  }
+  .tech-badge-mobile { left: -3%; top: 4%; }
+  .tech-badge-cloud { left: 0%; bottom: 6%; }
+  .tech-badge-perf { right: -2%; }
+}
+
+@media (max-width: 900px) {
+  .tech-visual-container {
+    max-width: 100%;
+    height: auto;
+    padding: 2rem 0;
+    margin: 2rem auto 0;
+  }
+  .tech-orbit-ring {
+    display: none;
+  }
+  .tech-badge {
+    position: static;
+    margin-top: 1rem;
+    width: 100%;
+    animation: none;
+  }
+}
